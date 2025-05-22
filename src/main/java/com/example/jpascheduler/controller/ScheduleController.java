@@ -31,8 +31,8 @@ public class ScheduleController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ScheduleResponseDto> findById(@PathVariable Long id) {
-        ScheduleResponseDto responseDto = schduleService.findById(id);
-        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+        ScheduleResponseDto foundResponseDto = schduleService.findById(id);
+        return new ResponseEntity<>(foundResponseDto, HttpStatus.OK);
     }
 
     @PatchMapping("/{id}")
@@ -40,7 +40,7 @@ public class ScheduleController {
             @PathVariable Long id,
             @RequestBody ScheduleRequestDto requestDto
     ) {
-        schduleService.update(id, requestDto);
-        return new ResponseEntity<>(HttpStatus.OK);
+        ScheduleResponseDto updatedResponseDto = schduleService.update(id, requestDto);
+        return new ResponseEntity<>(updatedResponseDto, HttpStatus.OK);
     }
 }
