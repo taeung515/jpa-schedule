@@ -33,10 +33,7 @@ public class Schedule extends BaseEntity {
     public Schedule() {
     }
 
-    public void editSchedule(String username, String title, String contents) {
-        if (Strings.isNotBlank(username)) {
-            user.setUsername(username);
-        }
+    public void editSchedule(String title, String contents) {
         if (Strings.isNotBlank(title)) {
             this.title = title;
         }

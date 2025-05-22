@@ -21,16 +21,15 @@ public class SchduleServiceImpl implements SchduleService {
     @Override
     public ScheduleResponseDto save(ScheduleRequestDto dto) {
 
-        User userByUsername = userRepository.findUserByUsernameOrElseThrow(dto.getUsername());
+        User userByEmail = userRepository.findUserByEmailOrElseThrow(dto.getEmail());
 
         Schedule schedule = new Schedule(dto.getTitle(), dto.getContents());
-        schedule.setUser(userByUsername);
+        schedule.setUser(userByEmail);
 
         Schedule savedSchedule = scheduleRepository.save(schedule);
 
         return new ScheduleResponseDto(
                 savedSchedule.getId(),
-                savedSchedule.getUser().getUsername(),
                 savedSchedule.getTitle(),
                 savedSchedule.getContents());
     }
@@ -51,8 +50,10 @@ public class SchduleServiceImpl implements SchduleService {
     @Override
     public ScheduleResponseDto update(Long id, ScheduleRequestDto requestDto) {
         Schedule schedule = scheduleRepository.findByIdOrElseThrow(id);
-        schedule.editSchedule(requestDto.getUsername(), requestDto.getTitle(), requestDto.getContents());
-        return ScheduleResponseDto.toDto(schedule);
+        schedule.editSchedule(requestDto.getTitle(), requestDto.getContents());
+
+        Schedule saved = scheduleRepository.save(schedule);
+        return ScheduleResponseDto.toDto(saved);
     }
 
     @Override
