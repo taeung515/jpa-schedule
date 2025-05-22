@@ -28,4 +28,19 @@ public class ScheduleController {
         List<ScheduleResponseDto> responseDtoList = schduleService.findAll();
         return new ResponseEntity<>(responseDtoList, HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ScheduleResponseDto> findById(@PathVariable Long id) {
+        ScheduleResponseDto responseDto = schduleService.findById(id);
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<ScheduleResponseDto> update(
+            @PathVariable Long id,
+            @RequestBody ScheduleRequestDto requestDto
+    ) {
+        schduleService.update(id, requestDto);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

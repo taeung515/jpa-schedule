@@ -36,4 +36,14 @@ public class SchduleServiceImpl implements SchduleService {
                 .map(ScheduleResponseDto::toDto)
                 .toList();
     }
+
+    @Override
+    public ScheduleResponseDto findById(Long id) {
+        return ScheduleResponseDto.toDto(scheduleRepository.findByIdOrElseThrow(id));
+    }
+
+    @Override
+    public ScheduleResponseDto update(Long id, ScheduleRequestDto requestDto) {
+        return null;
+    }
 }
