@@ -3,6 +3,7 @@ package com.example.jpascheduler.controller;
 import com.example.jpascheduler.domain.dto.user.UserResponseDto;
 import com.example.jpascheduler.domain.dto.user.UserSignUpRequestDto;
 import com.example.jpascheduler.domain.dto.user.UserSignUpResponseDto;
+import com.example.jpascheduler.domain.dto.user.UserUpdateRequestDto;
 import com.example.jpascheduler.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -28,5 +29,14 @@ public class UserController {
     public ResponseEntity<UserResponseDto> findById(@PathVariable Long id) {
         UserResponseDto responseDto = userService.findById(id);
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<UserResponseDto> update(
+            @PathVariable Long id,
+            @RequestBody UserUpdateRequestDto requestDto
+    ) {
+        UserResponseDto updateDto = userService.update(id, requestDto);
+        return new ResponseEntity<>(updateDto, HttpStatus.OK);
     }
 }
