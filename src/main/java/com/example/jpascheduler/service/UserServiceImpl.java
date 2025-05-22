@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDto signUp(UserSignUpRequestDto requestDto) {
 
-        User user = new User(requestDto.getUsername(), requestDto.getEmail());
+        User user = new User(requestDto.getUsername(), requestDto.getEmail(), requestDto.getPassword());
 
         User savedUser = userRepository.save(user);
 
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     public UserResponseDto update(Long id, UserUpdateRequestDto requestDto) {
 
         User user = userRepository.findByIdOrElseThrow(id);
-        user.editUser(requestDto.getUsername(), requestDto.getEmail());
+        user.editUser(requestDto.getUsername(), requestDto.getEmail(), requestDto.getPassword());
 
         User savedUser = userRepository.save(user);
 

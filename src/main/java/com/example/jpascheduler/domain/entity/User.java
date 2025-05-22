@@ -12,29 +12,35 @@ public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    @Setter
     @Column(nullable = false)
-    public String username;
+    private String username;
 
     @Column(nullable = false, unique = true)
-    public String email;
+    private String email;
 
-    public User(String username, String email) {
+    @Column(nullable = false)
+    private String password;
+
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
+        this.password = password;
     }
 
     public User() {
     }
 
-    public void editUser(String username, String email) {
+    public void editUser(String username, String email, String password) {
         if (Strings.isNotBlank(username)) {
             this.username = username;
         }
         if (Strings.isNotBlank(email)) {
             this.email = email;
+        }
+        if (Strings.isNotBlank(password)) {
+            this.password = password;
         }
     }
 }

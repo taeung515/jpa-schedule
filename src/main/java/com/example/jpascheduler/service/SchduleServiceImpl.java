@@ -28,10 +28,7 @@ public class SchduleServiceImpl implements SchduleService {
 
         Schedule savedSchedule = scheduleRepository.save(schedule);
 
-        return new ScheduleResponseDto(
-                savedSchedule.getId(),
-                savedSchedule.getTitle(),
-                savedSchedule.getContents());
+        return ScheduleResponseDto.toDto(savedSchedule);
     }
 
     @Override
