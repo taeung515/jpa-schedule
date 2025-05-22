@@ -48,4 +48,9 @@ public class SchduleServiceImpl implements SchduleService {
         schedule.editSchedule(requestDto.getUsername(), requestDto.getTitle(), requestDto.getContents());
         return ScheduleResponseDto.toDto(schedule);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        scheduleRepository.deleteById(id);
+    }
 }
