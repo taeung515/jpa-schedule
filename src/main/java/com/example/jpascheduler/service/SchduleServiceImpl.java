@@ -54,7 +54,8 @@ public class SchduleServiceImpl implements SchduleService {
     }
 
     @Override
-    public void deleteById(Long id) {
-        scheduleRepository.deleteById(id);
+    public void delete(Long id) {
+        Schedule schedule = scheduleRepository.findByIdOrElseThrow(id);
+        scheduleRepository.delete(schedule);
     }
 }
