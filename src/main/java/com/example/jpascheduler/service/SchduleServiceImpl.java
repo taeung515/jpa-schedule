@@ -7,6 +7,8 @@ import com.example.jpascheduler.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class SchduleServiceImpl implements SchduleService {
@@ -25,5 +27,13 @@ public class SchduleServiceImpl implements SchduleService {
                 savedSchedule.getUsername(),
                 savedSchedule.getTitle(),
                 savedSchedule.getContents());
+    }
+
+    @Override
+    public List<ScheduleResponseDto> findAll() {
+        return scheduleRepository.findAll()
+                .stream()
+                .map(ScheduleResponseDto::toDto)
+                .toList();
     }
 }

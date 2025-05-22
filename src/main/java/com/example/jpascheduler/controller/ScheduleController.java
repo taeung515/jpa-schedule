@@ -6,10 +6,9 @@ import com.example.jpascheduler.service.SchduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/schedules")
@@ -22,5 +21,11 @@ public class ScheduleController {
     public ResponseEntity<ScheduleResponseDto> save(@RequestBody ScheduleRequestDto dto) {
         ScheduleResponseDto responseDto = schduleService.save(dto);
         return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ScheduleResponseDto>> findAll() {
+        List<ScheduleResponseDto> responseDtoList = schduleService.findAll();
+        return new ResponseEntity<>(responseDtoList, HttpStatus.OK);
     }
 }
