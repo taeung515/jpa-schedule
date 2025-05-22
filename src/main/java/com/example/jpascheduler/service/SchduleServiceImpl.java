@@ -8,6 +8,7 @@ import com.example.jpascheduler.repository.ScheduleRepository;
 import com.example.jpascheduler.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -45,6 +46,7 @@ public class SchduleServiceImpl implements SchduleService {
     }
 
     @Override
+    @Transactional
     public ScheduleResponseDto update(Long id, ScheduleRequestDto requestDto) {
         Schedule schedule = scheduleRepository.findByIdOrElseThrow(id);
         schedule.editSchedule(requestDto.getTitle(), requestDto.getContents());

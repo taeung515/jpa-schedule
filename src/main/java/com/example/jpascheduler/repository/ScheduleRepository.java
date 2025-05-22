@@ -16,4 +16,6 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
                         )
                 );
     }
+
+    void deleteAllById(Long id);
 }
