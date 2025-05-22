@@ -2,7 +2,6 @@ package com.example.jpascheduler.controller;
 
 import com.example.jpascheduler.domain.dto.user.UserResponseDto;
 import com.example.jpascheduler.domain.dto.user.UserSignUpRequestDto;
-import com.example.jpascheduler.domain.dto.user.UserSignUpResponseDto;
 import com.example.jpascheduler.domain.dto.user.UserUpdateRequestDto;
 import com.example.jpascheduler.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -18,9 +17,9 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/signup")
-    public ResponseEntity<UserSignUpResponseDto> signUp(@RequestBody UserSignUpRequestDto requestDto) {
-        UserSignUpResponseDto userSignUpResponseDto = userService.signUp(requestDto);
-        return new ResponseEntity<>(userSignUpResponseDto, HttpStatus.CREATED);
+    public ResponseEntity<UserResponseDto> signUp(@RequestBody UserSignUpRequestDto requestDto) {
+        UserResponseDto UserResponseDto = userService.signUp(requestDto);
+        return new ResponseEntity<>(UserResponseDto, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
