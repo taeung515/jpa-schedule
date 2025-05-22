@@ -3,7 +3,9 @@ package com.example.jpascheduler.service;
 import com.example.jpascheduler.domain.dto.schedule.ScheduleRequestDto;
 import com.example.jpascheduler.domain.dto.schedule.ScheduleResponseDto;
 import com.example.jpascheduler.domain.entity.Schedule;
+import com.example.jpascheduler.domain.entity.User;
 import com.example.jpascheduler.repository.ScheduleRepository;
+import com.example.jpascheduler.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +16,15 @@ import java.util.List;
 public class SchduleServiceImpl implements SchduleService {
 
     private final ScheduleRepository scheduleRepository;
+    private final UserRepository userRepository;
 
     @Override
     public ScheduleResponseDto save(ScheduleRequestDto dto) {
 
+        User userByUsername = userRepository.findUserByUsernameOrElseThrow(dto.getUsername());
+
         Schedule schedule = new Schedule(dto.getTitle(), dto.getContents());
+        schedule.setUser(userByUsername);
 
         Schedule savedSchedule = scheduleRepository.save(schedule);
 
