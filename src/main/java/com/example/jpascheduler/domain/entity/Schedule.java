@@ -2,6 +2,7 @@ package com.example.jpascheduler.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import org.apache.logging.log4j.util.Strings;
 
 @Entity
 @Table(name = "user")
@@ -28,6 +29,18 @@ public class Schedule extends BaseEntity {
     }
 
     public Schedule() {
+    }
+
+    public void editSchedule(String username, String title, String contents) {
+        if (Strings.isNotBlank(username)) {
+            this.username = username;
+        }
+        if (Strings.isNotBlank(title)) {
+            this.title = title;
+        }
+        if (Strings.isNotBlank(contents)) {
+            this.contents = contents;
+        }
     }
 
 }
