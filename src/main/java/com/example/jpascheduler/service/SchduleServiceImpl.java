@@ -18,13 +18,13 @@ public class SchduleServiceImpl implements SchduleService {
     @Override
     public ScheduleResponseDto save(ScheduleRequestDto dto) {
 
-        Schedule schedule = new Schedule(dto.getUsername(), dto.getTitle(), dto.getContents());
+        Schedule schedule = new Schedule(dto.getTitle(), dto.getContents());
 
         Schedule savedSchedule = scheduleRepository.save(schedule);
 
         return new ScheduleResponseDto(
                 savedSchedule.getId(),
-                savedSchedule.getUsername(),
+                savedSchedule.getUser().getUsername(),
                 savedSchedule.getTitle(),
                 savedSchedule.getContents());
     }

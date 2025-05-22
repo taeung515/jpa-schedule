@@ -2,10 +2,11 @@ package com.example.jpascheduler.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import org.apache.logging.log4j.util.Strings;
 
 @Entity
-@Table(name = "user")
+@Table(name = "schedule")
 @Getter
 public class Schedule extends BaseEntity {
 
@@ -14,16 +15,17 @@ public class Schedule extends BaseEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String username;
-
-    @Column(nullable = false)
     private String title;
 
     @Column(nullable = false, columnDefinition = "longtext")
     private String contents;
 
-    public Schedule(String username, String title, String contents) {
-        this.username = username;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @Setter
+    private User user;
+
+    public Schedule(String title, String contents) {
         this.title = title;
         this.contents = contents;
     }
@@ -33,7 +35,7 @@ public class Schedule extends BaseEntity {
 
     public void editSchedule(String username, String title, String contents) {
         if (Strings.isNotBlank(username)) {
-            this.username = username;
+            user.setUsername(username);
         }
         if (Strings.isNotBlank(title)) {
             this.title = title;
