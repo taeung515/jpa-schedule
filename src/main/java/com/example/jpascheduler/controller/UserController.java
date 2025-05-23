@@ -76,9 +76,7 @@ public class UserController {
     @PostMapping("/logout")
     public ResponseEntity<Void> logout(HttpSession session, HttpServletResponse response) {
 
-        if (session != null) {
-            session.invalidate();
-        }
+        session.invalidate();
 
         Cookie cookie = new Cookie("JSESSIONID", null);
         cookie.setPath("/");
