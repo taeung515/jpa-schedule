@@ -1,5 +1,6 @@
 package com.example.jpascheduler.service;
 
+import com.example.jpascheduler.domain.dto.user.UserLoginRequestDto;
 import com.example.jpascheduler.domain.dto.user.UserResponseDto;
 import com.example.jpascheduler.domain.dto.user.UserSignUpRequestDto;
 import com.example.jpascheduler.domain.dto.user.UserUpdateRequestDto;
@@ -12,4 +13,6 @@ public interface UserService {
     UserResponseDto update(Long id, UserUpdateRequestDto requestDto);
 
     void delete(Long id);
+
+    UserResponseDto login(UserLoginRequestDto requestDto);
 }
