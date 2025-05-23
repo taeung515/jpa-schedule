@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import static com.example.jpascheduler.common.constant.Constants.*;
 
@@ -44,7 +45,20 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(
+            @PathVariable Long id,
+            HttpSession session
+    ) {
+
+        Long sessionUserId = (Long) session.getAttribute(SESSION_USER_ID);
+
+        if (sessionUserId == null || !sessionUserId.equals(id)) {
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN,
+                    "본인만 삭제할 수 있습니다."
+            );
+        }
+
         userService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
