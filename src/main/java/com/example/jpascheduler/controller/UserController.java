@@ -54,9 +54,9 @@ public class UserController {
             @RequestBody UserLoginRequestDto requestDto,
             HttpSession session
     ) {
-        userService.login(requestDto);
-        session.setAttribute(SESSION_USER_EMAIL, requestDto.getEmail());
-        return new ResponseEntity<>(HttpStatus.OK);
+        UserResponseDto logined = userService.login(requestDto);
+        session.setAttribute(SESSION_USER_ID, logined.getId());
+        return new ResponseEntity<>(logined, HttpStatus.OK);
     }
 
     @PostMapping("/logout")

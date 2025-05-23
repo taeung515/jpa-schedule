@@ -6,7 +6,9 @@ import lombok.Getter;
 public class UserUpdateRequestDto {
 
     private final String username;
+
     private final String email;
+
     private final String password;
 
     public UserUpdateRequestDto(String username, String email, String password) {

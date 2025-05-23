@@ -27,7 +27,7 @@ public class LoginFilter implements Filter {
 
             HttpSession session = httpRequest.getSession(false);
 
-            if (session == null || session.getAttribute(SESSION_USER_EMAIL) == null) {
+            if (session == null || session.getAttribute(SESSION_USER_ID) == null) {
                 throw new RuntimeException("로그인 해주세요");
             }
 

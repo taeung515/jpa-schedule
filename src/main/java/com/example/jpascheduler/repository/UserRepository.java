@@ -1,6 +1,5 @@
 package com.example.jpascheduler.repository;
 
-import com.example.jpascheduler.domain.entity.Schedule;
 import com.example.jpascheduler.domain.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
