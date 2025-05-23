@@ -8,6 +8,7 @@ import com.example.jpascheduler.service.UserService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/signup")
-    public ResponseEntity<UserResponseDto> signUp(@RequestBody UserSignUpRequestDto requestDto) {
+    public ResponseEntity<UserResponseDto> signUp(@Valid @RequestBody UserSignUpRequestDto requestDto) {
         UserResponseDto UserResponseDto = userService.signUp(requestDto);
         return new ResponseEntity<>(UserResponseDto, HttpStatus.CREATED);
     }
@@ -38,7 +39,7 @@ public class UserController {
     @PatchMapping("/{id}")
     public ResponseEntity<UserResponseDto> update(
             @PathVariable Long id,
-            @RequestBody UserUpdateRequestDto requestDto
+            @Valid @RequestBody UserUpdateRequestDto requestDto
     ) {
         UserResponseDto updateDto = userService.update(id, requestDto);
         return new ResponseEntity<>(updateDto, HttpStatus.OK);
@@ -65,7 +66,7 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<UserResponseDto> login(
-            @RequestBody UserLoginRequestDto requestDto,
+            @Valid @RequestBody UserLoginRequestDto requestDto,
             HttpSession session
     ) {
         UserResponseDto logined = userService.login(requestDto);
