@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserResponseDto findById(Long id) {
 
         User user = userRepository.findByIdOrElseThrow(id);
@@ -45,9 +46,7 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByIdOrElseThrow(id);
         user.editUser(requestDto.getUsername(), requestDto.getEmail(), requestDto.getPassword());
 
-        User savedUser = userRepository.save(user);
-
-        return new UserResponseDto(savedUser.getId(), savedUser.getUsername(), savedUser.getEmail());
+        return new UserResponseDto(user.getId(), user.getUsername(), user.getEmail());
     }
 
     @Override

@@ -50,9 +50,7 @@ public class SchduleServiceImpl implements SchduleService {
     public ScheduleResponseDto update(Long id, ScheduleRequestDto requestDto) {
         Schedule schedule = scheduleRepository.findByIdOrElseThrow(id);
         schedule.editSchedule(requestDto.getTitle(), requestDto.getContents());
-
-        Schedule saved = scheduleRepository.save(schedule);
-        return ScheduleResponseDto.toDto(saved);
+        return ScheduleResponseDto.toDto(schedule);
     }
 
     @Override
