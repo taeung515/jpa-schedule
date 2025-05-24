@@ -2,6 +2,7 @@ package com.example.jpascheduler.schedule.service;
 
 import com.example.jpascheduler.schedule.dto.ScheduleRequestDto;
 import com.example.jpascheduler.schedule.dto.ScheduleResponseDto;
+import com.example.jpascheduler.schedule.dto.ScheduleUpdateRequestDto;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface SchduleService {
 
     ScheduleResponseDto findById(Long id);
 
-    ScheduleResponseDto update(Long id, ScheduleRequestDto requestDto);
+    ScheduleResponseDto update(Long id, ScheduleUpdateRequestDto requestDto);
 
     void delete(Long id);
 }

@@ -1,5 +1,6 @@
 package com.example.jpascheduler.schedule.service;
 
+import com.example.jpascheduler.schedule.dto.ScheduleUpdateRequestDto;
 import com.example.jpascheduler.schedule.entity.Schedule;
 import com.example.jpascheduler.schedule.repository.ScheduleRepository;
 import com.example.jpascheduler.schedule.dto.ScheduleRequestDto;
@@ -47,7 +48,7 @@ public class SchduleServiceImpl implements SchduleService {
 
     @Override
     @Transactional
-    public ScheduleResponseDto update(Long id, ScheduleRequestDto requestDto) {
+    public ScheduleResponseDto update(Long id, ScheduleUpdateRequestDto requestDto) {
         Schedule schedule = scheduleRepository.findByIdOrElseThrow(id);
         schedule.editSchedule(requestDto.getTitle(), requestDto.getContents());
         return ScheduleResponseDto.toDto(schedule);

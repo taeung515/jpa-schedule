@@ -2,6 +2,7 @@ package com.example.jpascheduler.schedule.controller;
 
 import com.example.jpascheduler.schedule.dto.ScheduleRequestDto;
 import com.example.jpascheduler.schedule.dto.ScheduleResponseDto;
+import com.example.jpascheduler.schedule.dto.ScheduleUpdateRequestDto;
 import com.example.jpascheduler.schedule.service.SchduleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +40,7 @@ public class ScheduleController {
     @PatchMapping("/{id}")
     public ResponseEntity<ScheduleResponseDto> update(
             @PathVariable Long id,
-            @Valid @RequestBody ScheduleRequestDto requestDto
+            @Valid @RequestBody ScheduleUpdateRequestDto requestDto
     ) {
         ScheduleResponseDto updatedResponseDto = schduleService.update(id, requestDto);
         return new ResponseEntity<>(updatedResponseDto, HttpStatus.OK);
