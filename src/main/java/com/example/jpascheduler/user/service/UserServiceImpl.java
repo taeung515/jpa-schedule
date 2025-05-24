@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void delete(Long id) {
         User user = userRepository.findByIdOrElseThrow(id);
-        scheduleRepository.deleteAllById(user.getId());
+        scheduleRepository.deleteAllByUserId(user.getId());
 
         userRepository.delete(user);
     }
