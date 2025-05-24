@@ -1,7 +1,7 @@
-package com.example.jpascheduler.service;
+package com.example.jpascheduler.schedule.service;
 
-import com.example.jpascheduler.domain.dto.schedule.ScheduleRequestDto;
-import com.example.jpascheduler.domain.dto.schedule.ScheduleResponseDto;
+import com.example.jpascheduler.schedule.dto.ScheduleRequestDto;
+import com.example.jpascheduler.schedule.dto.ScheduleResponseDto;
 
 import java.util.List;
 

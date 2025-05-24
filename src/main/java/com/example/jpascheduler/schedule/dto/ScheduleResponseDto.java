@@ -1,6 +1,6 @@
-package com.example.jpascheduler.domain.dto.schedule;
+package com.example.jpascheduler.schedule.dto;
 
-import com.example.jpascheduler.domain.entity.Schedule;
+import com.example.jpascheduler.schedule.entity.Schedule;
 import lombok.Getter;
 
 @Getter

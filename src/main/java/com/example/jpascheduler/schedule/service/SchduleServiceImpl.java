@@ -1,11 +1,11 @@
-package com.example.jpascheduler.service;
+package com.example.jpascheduler.schedule.service;
 
-import com.example.jpascheduler.domain.dto.schedule.ScheduleRequestDto;
-import com.example.jpascheduler.domain.dto.schedule.ScheduleResponseDto;
-import com.example.jpascheduler.domain.entity.Schedule;
-import com.example.jpascheduler.domain.entity.User;
-import com.example.jpascheduler.repository.ScheduleRepository;
-import com.example.jpascheduler.repository.UserRepository;
+import com.example.jpascheduler.schedule.entity.Schedule;
+import com.example.jpascheduler.schedule.repository.ScheduleRepository;
+import com.example.jpascheduler.schedule.dto.ScheduleRequestDto;
+import com.example.jpascheduler.schedule.dto.ScheduleResponseDto;
+import com.example.jpascheduler.user.entity.User;
+import com.example.jpascheduler.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

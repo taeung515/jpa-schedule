@@ -1,6 +1,6 @@
-package com.example.jpascheduler.repository;
+package com.example.jpascheduler.schedule.repository;
 
-import com.example.jpascheduler.domain.entity.Schedule;
+import com.example.jpascheduler.schedule.entity.Schedule;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

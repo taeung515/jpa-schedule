@@ -1,4 +1,4 @@
-package com.example.jpascheduler.domain.dto.user;
+package com.example.jpascheduler.user.dto;
 
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;

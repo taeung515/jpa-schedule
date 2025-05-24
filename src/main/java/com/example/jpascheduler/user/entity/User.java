@@ -1,5 +1,6 @@
-package com.example.jpascheduler.domain.entity;
+package com.example.jpascheduler.user.entity;
 
+import com.example.jpascheduler.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.apache.logging.log4j.util.Strings;

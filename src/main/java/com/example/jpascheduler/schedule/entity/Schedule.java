@@ -1,5 +1,7 @@
-package com.example.jpascheduler.domain.entity;
+package com.example.jpascheduler.schedule.entity;
 
+import com.example.jpascheduler.common.entity.BaseEntity;
+import com.example.jpascheduler.user.entity.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

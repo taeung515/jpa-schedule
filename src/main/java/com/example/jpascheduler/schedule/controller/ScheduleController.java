@@ -1,8 +1,8 @@
-package com.example.jpascheduler.controller;
+package com.example.jpascheduler.schedule.controller;
 
-import com.example.jpascheduler.domain.dto.schedule.ScheduleRequestDto;
-import com.example.jpascheduler.domain.dto.schedule.ScheduleResponseDto;
-import com.example.jpascheduler.service.SchduleService;
+import com.example.jpascheduler.schedule.dto.ScheduleRequestDto;
+import com.example.jpascheduler.schedule.dto.ScheduleResponseDto;
+import com.example.jpascheduler.schedule.service.SchduleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

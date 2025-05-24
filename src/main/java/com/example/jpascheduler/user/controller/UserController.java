@@ -1,10 +1,10 @@
-package com.example.jpascheduler.controller;
+package com.example.jpascheduler.user.controller;
 
-import com.example.jpascheduler.domain.dto.user.UserLoginRequestDto;
-import com.example.jpascheduler.domain.dto.user.UserResponseDto;
-import com.example.jpascheduler.domain.dto.user.UserSignUpRequestDto;
-import com.example.jpascheduler.domain.dto.user.UserUpdateRequestDto;
-import com.example.jpascheduler.service.UserService;
+import com.example.jpascheduler.user.dto.UserLoginRequestDto;
+import com.example.jpascheduler.user.dto.UserResponseDto;
+import com.example.jpascheduler.user.dto.UserSignUpRequestDto;
+import com.example.jpascheduler.user.dto.UserUpdateRequestDto;
+import com.example.jpascheduler.user.service.UserService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;

@@ -1,4 +1,4 @@
-package com.example.jpascheduler.domain.entity;
+package com.example.jpascheduler.common.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
