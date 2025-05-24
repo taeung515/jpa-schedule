@@ -1,5 +1,7 @@
 package com.example.jpascheduler.common.exception;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -22,6 +24,15 @@ public class GlobalExceptionHandler {
         }
 
         return builder.toString();
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResponseDto> handleUserNotFound(UserNotFoundException exception) {
+        ErrorResponseDto response = new ErrorResponseDto(
+                HttpStatus.NOT_FOUND.value(),
+                exception.getMessage()
+        );
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 }
 
