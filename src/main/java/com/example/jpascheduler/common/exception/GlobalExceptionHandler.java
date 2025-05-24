@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
             builder.append(fieldError.getDefaultMessage());
             builder.append(" 입력된 값: ");
             builder.append(fieldError.getRejectedValue());
-            builder.append(" \n");
+            builder.append("\n");
         }
 
         return builder.toString();
@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ScheduleNotFoundException.class)
-    public ResponseEntity<ErrorResponseDto> handleUserNotFound(ScheduleNotFoundException exception) {
+    public ResponseEntity<ErrorResponseDto> handleScheduleNotFoundException(ScheduleNotFoundException exception) {
         ErrorResponseDto response = new ErrorResponseDto(
                 HttpStatus.NOT_FOUND.value(),
                 exception.getMessage()
@@ -45,7 +45,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(PasswordMismatchException.class)
-    public ResponseEntity<ErrorResponseDto> handleUserNotFound(PasswordMismatchException exception) {
+    public ResponseEntity<ErrorResponseDto> handlePasswordMismatchException(PasswordMismatchException exception) {
         ErrorResponseDto response = new ErrorResponseDto(
                 HttpStatus.UNAUTHORIZED.value(),
                 exception.getMessage()
@@ -54,7 +54,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(LoginRequiredException.class)
-    public ResponseEntity<ErrorResponseDto> handleUserNotFound(LoginRequiredException exception) {
+    public ResponseEntity<ErrorResponseDto> handleLoginRequiredException(LoginRequiredException exception) {
         ErrorResponseDto response = new ErrorResponseDto(
                 HttpStatus.UNAUTHORIZED.value(),
                 exception.getMessage()
@@ -63,7 +63,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(UnauthorizedSessionException.class)
-    public ResponseEntity<ErrorResponseDto> handleUserNotFound(UnauthorizedSessionException exception) {
+    public ResponseEntity<ErrorResponseDto> handleUnauthorizedSessionException(UnauthorizedSessionException exception) {
         ErrorResponseDto response = new ErrorResponseDto(
                 HttpStatus.FORBIDDEN.value(),
                 exception.getMessage()
