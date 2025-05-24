@@ -1,5 +1,6 @@
 package com.example.jpascheduler.common.filter;
 
+import com.example.jpascheduler.common.exception.LoginRequiredException;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -28,7 +29,7 @@ public class LoginFilter implements Filter {
             HttpSession session = httpRequest.getSession(false);
 
             if (session == null || session.getAttribute(SESSION_USER_ID) == null) {
-                throw new RuntimeException("로그인 해주세요");
+                throw new LoginRequiredException("로그인 해주세요");
             }
 
         }

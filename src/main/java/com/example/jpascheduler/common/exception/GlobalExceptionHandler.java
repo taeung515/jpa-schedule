@@ -52,6 +52,24 @@ public class GlobalExceptionHandler {
         );
         return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
     }
+
+    @ExceptionHandler(LoginRequiredException.class)
+    public ResponseEntity<ErrorResponseDto> handleUserNotFound(LoginRequiredException exception) {
+        ErrorResponseDto response = new ErrorResponseDto(
+                HttpStatus.UNAUTHORIZED.value(),
+                exception.getMessage()
+        );
+        return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(UnauthorizedSessionException.class)
+    public ResponseEntity<ErrorResponseDto> handleUserNotFound(UnauthorizedSessionException exception) {
+        ErrorResponseDto response = new ErrorResponseDto(
+                HttpStatus.FORBIDDEN.value(),
+                exception.getMessage()
+        );
+        return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
+    }
 }
 
 

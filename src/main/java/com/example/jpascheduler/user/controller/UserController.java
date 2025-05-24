@@ -1,5 +1,6 @@
 package com.example.jpascheduler.user.controller;
 
+import com.example.jpascheduler.common.exception.UnauthorizedSessionException;
 import com.example.jpascheduler.user.dto.UserLoginRequestDto;
 import com.example.jpascheduler.user.dto.UserResponseDto;
 import com.example.jpascheduler.user.dto.UserSignUpRequestDto;
@@ -53,11 +54,8 @@ public class UserController {
 
         Long sessionUserId = (Long) session.getAttribute(SESSION_USER_ID);
 
-        if (sessionUserId == null || !sessionUserId.equals(id)) {
-            throw new ResponseStatusException(
-                    HttpStatus.FORBIDDEN,
-                    "본인만 삭제할 수 있습니다."
-            );
+        if (!sessionUserId.equals(id)) {
+            throw new UnauthorizedSessionException("본인만 삭제할 수 있습니다.");
         }
 
         userService.delete(id);
