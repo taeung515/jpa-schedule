@@ -4,7 +4,7 @@
 ### ERD
 ![img.png](img.png)
 ### API 명세서
-[API 명세서 확인하기(클릭)](https://documenter.getpostman.com/view/44705343/2sB2qaiguu)
+[API 명세서 확인하기(클릭)](https://documenter.getpostman.com/view/44705343/2sB2qcAzs2)
 ### 요구사항, 구현과정
 [블로그 바로가기](https://ung9776.tistory.com/69)
 ### 트러블슈팅 기록
