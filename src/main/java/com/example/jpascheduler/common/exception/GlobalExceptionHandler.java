@@ -43,6 +43,15 @@ public class GlobalExceptionHandler {
         );
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(PasswordMismatchException.class)
+    public ResponseEntity<ErrorResponseDto> handleUserNotFound(PasswordMismatchException exception) {
+        ErrorResponseDto response = new ErrorResponseDto(
+                HttpStatus.UNAUTHORIZED.value(),
+                exception.getMessage()
+        );
+        return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+    }
 }
 
 
