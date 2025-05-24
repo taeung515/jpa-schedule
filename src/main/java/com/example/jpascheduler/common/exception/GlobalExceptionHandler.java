@@ -34,6 +34,15 @@ public class GlobalExceptionHandler {
         );
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(ScheduleNotFoundException.class)
+    public ResponseEntity<ErrorResponseDto> handleUserNotFound(ScheduleNotFoundException exception) {
+        ErrorResponseDto response = new ErrorResponseDto(
+                HttpStatus.NOT_FOUND.value(),
+                exception.getMessage()
+        );
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
 }
 
 
