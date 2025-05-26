@@ -4,6 +4,10 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 
+/**
+ * 회원정보 수정 요청 데이터.
+ * 사용자는 username, email, password 선택하여 수정 요청 할 수 있습니다.
+ */
 @Getter
 public class UserUpdateRequestDto {
     @Size(max = 4, message = "이름은 4자까지 입력 가능합니다.")

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    // @Vaild 예외 발생
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public String processValidationError(MethodArgumentNotValidException exception) {
         BindingResult bindingResult = exception.getBindingResult();
@@ -26,6 +27,7 @@ public class GlobalExceptionHandler {
         return builder.toString();
     }
 
+    // 유저를 찾을 수 없을 때
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorResponseDto> handleUserNotFound(UserNotFoundException exception) {
         ErrorResponseDto response = new ErrorResponseDto(
@@ -35,6 +37,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 
+    // 일정을 찾을 수 없을 때
     @ExceptionHandler(ScheduleNotFoundException.class)
     public ResponseEntity<ErrorResponseDto> handleScheduleNotFoundException(ScheduleNotFoundException exception) {
         ErrorResponseDto response = new ErrorResponseDto(
@@ -44,6 +47,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 
+    // 비밀번호가 미일치
     @ExceptionHandler(PasswordMismatchException.class)
     public ResponseEntity<ErrorResponseDto> handlePasswordMismatchException(PasswordMismatchException exception) {
         ErrorResponseDto response = new ErrorResponseDto(
@@ -53,6 +57,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
     }
 
+    // 로그인 하지 않고 접근
     @ExceptionHandler(LoginRequiredException.class)
     public ResponseEntity<ErrorResponseDto> handleLoginRequiredException(LoginRequiredException exception) {
         ErrorResponseDto response = new ErrorResponseDto(
@@ -62,6 +67,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
     }
 
+    // 회원탈퇴 시 본인이 아닐 때
     @ExceptionHandler(UnauthorizedSessionException.class)
     public ResponseEntity<ErrorResponseDto> handleUnauthorizedSessionException(UnauthorizedSessionException exception) {
         ErrorResponseDto response = new ErrorResponseDto(

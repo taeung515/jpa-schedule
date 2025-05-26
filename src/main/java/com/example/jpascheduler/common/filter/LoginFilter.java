@@ -11,7 +11,10 @@ import java.io.IOException;
 
 import static com.example.jpascheduler.common.constant.Constants.*;
 
-
+/**
+ * 로그인 인증을 하는 필터입니다.
+ * 회원가입, 로그인 경로를 제외하고 접근하는 모든 경로에서 세션이 없는 유저의 접근을 차단합니다.
+ */
 public class LoginFilter implements Filter {
 
     private static final String[] WHITE_LIST = {"/api/users/signup", "/api/users/login"};

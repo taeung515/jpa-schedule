@@ -6,6 +6,6 @@ public final class Constants {
 
     }
 
-    public static final String SESSION_USER_ID = "loginUserEmail";
+    public static final String SESSION_USER_ID = "loginUserId";
 
 }

@@ -48,6 +48,10 @@ public class UserServiceImpl implements UserService {
         return new UserResponseDto(user.getId(), user.getUsername(), user.getEmail());
     }
 
+    /**
+     * 회원탈퇴 요청 시 일정도 함께 삭제
+     * @param id 사용자 고유 식별자
+     */
     @Override
     @Transactional
     public void delete(Long id) {
