@@ -6,7 +6,7 @@ import com.example.jpascheduler.schedule.dto.ScheduleUpdateRequestDto;
 
 import java.util.List;
 
-public interface SchduleService {
+public interface ScheduleService {
 
     ScheduleResponseDto save(ScheduleRequestDto dto);
 
